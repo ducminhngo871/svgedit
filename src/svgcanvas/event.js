@@ -1002,8 +1002,7 @@ const mouseDownEvent = (evt) => {
     } else if (griptype === 'resize') {
       svgCanvas.setCurrentMode('resize')
 
-      /* Update code */
-      if (selectedElements[0].tagName === "text" && selectedElements[0].textContent.length) {
+      if (selectedElements[0].tagName === 'text' && selectedElements[0].textContent.length) {
         svgCanvas.textActions.toSelectMode(selectedElements[0])
       }
       svgCanvas.setCurrentResizeMode(dataStorage.get(grip, 'dir'))

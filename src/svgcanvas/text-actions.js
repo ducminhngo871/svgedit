@@ -412,8 +412,13 @@ export const textActionsMethod = (function () {
 * @returns {void}
 */
     toSelectMode (selectElem) {
-      svgCanvas.setCurrentMode('select')
+      if (svgCanvas.getCurrentMode() !== 'resize') {
+        svgCanvas.setCurrentMode('select')
+      }
       clearInterval(blinker)
+      if (!curtext) {
+        curtext = selectElem
+      }
       blinker = null
       if (selblock) { selblock.setAttribute('display', 'none') }
       if (cursor) { cursor.setAttribute('visibility', 'hidden') }
